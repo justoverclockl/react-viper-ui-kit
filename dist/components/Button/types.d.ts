@@ -1,18 +1,28 @@
-import { ButtonHTMLAttributes } from 'react';
-export type SizeType = 'small' | 'medium' | 'large' | 'full';
-export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
+import { AnchorHTMLAttributes } from 'react';
+export type SizeType = 'small' | 'medium' | 'large';
+export type VariantType = 'primary' | 'secondary' | 'outline' | 'danger' | 'disabled';
+export type ButtonProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
     /**
-     *  Specify if button is of type primary
-     *  normally used for principal actions
+     *  Specify the button variant
+     *  variant can be 'primary' | 'secondary' | 'outline' | 'disabled'
      */
-    primary?: boolean;
+    variant: VariantType;
     /**
      *  Allowed sizes for the Button component
      *
      * - small
      * - medium
      * - large
-     * - full
      */
     size?: SizeType;
+    /**
+     *  If true will render a loading spinner icon
+     *
+     */
+    isLoading?: boolean;
+    /**
+     *  If passed will add the href attribute to the button
+     *
+     */
+    href?: string;
 };

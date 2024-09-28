@@ -1,1 +1,1 @@
-export declare const BASE_BUTTON_CLASSES = "rv-transition rv-duration-300 rv-cursor-pointer rv-rounded-md rv-block rv-font-medium rv-text-center rv-text-sm rv-whitespace-nowrap rv-uppercase rv-justify-center rv-items-center";
+export declare const BASE_BUTTON_CLASSES = "rv-w-full rv-relative rv-inline-flex rv-items-center rv-justify-center rv-overflow-hidden rv-tracking-tighter rv-font-bold rv-rounded-lg rv-group disabled:rv-opacity-30";
