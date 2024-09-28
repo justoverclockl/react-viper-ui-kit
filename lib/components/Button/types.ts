@@ -1,6 +1,6 @@
-import {ButtonHTMLAttributes} from "react";
+import { ButtonHTMLAttributes } from 'react';
 
-export type SizeType = "small" | "medium" | "large" | "full"
+export type SizeType = 'small' | 'medium' | 'large' | 'full';
 
 export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
     /**
@@ -17,4 +17,4 @@ export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
      * - full
      */
     size?: SizeType
-}
+};
