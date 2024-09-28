@@ -35,7 +35,7 @@ export const Secondary: Story = {
 export const Outline: Story = {
     args: {
         variant: 'outline',
-        children: 'Outlined',
+        children: 'Outlined large',
         size: 'large',
     },
 };
@@ -43,7 +43,7 @@ export const Outline: Story = {
 export const Danger: Story = {
     args: {
         variant: 'danger',
-        children: 'Danger',
+        children: 'Danger medium',
         size: 'medium',
     },
 };
@@ -54,5 +54,13 @@ export const SecondaryLoading: Story = {
         children: 'Secondary loading small',
         size: 'small',
         isLoading: true,
+    },
+};
+
+export const Disabled: Story = {
+    args: {
+        variant: 'disabled',
+        children: 'Disabled',
+        size: 'small',
     },
 };

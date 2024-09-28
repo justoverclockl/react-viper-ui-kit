@@ -1,12 +1,12 @@
 import { AnchorHTMLAttributes } from 'react';
 
-export type SizeType = 'small' | 'medium' | 'large' | 'full';
-export type VariantType = 'primary' | 'secondary' | 'outline' | 'danger';
+export type SizeType = 'small' | 'medium' | 'large';
+export type VariantType = 'primary' | 'secondary' | 'outline' | 'danger' | 'disabled';
 
 export type ButtonProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
     /**
      *  Specify the button variant
-     *  variant can be 'primary' | 'secondary' | 'outline'
+     *  variant can be 'primary' | 'secondary' | 'outline' | 'disabled'
      */
     variant: VariantType
     /**
@@ -15,7 +15,6 @@ export type ButtonProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
      * - small
      * - medium
      * - large
-     * - full
      */
     size?: SizeType
     /**

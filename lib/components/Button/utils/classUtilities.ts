@@ -11,9 +11,6 @@ export const getSizeClasses = (size: SizeType): string => {
         case 'small': {
             return 'rv-w-fit rv-px-5 rv-py-2';
         }
-        case 'full': {
-            return 'rv-w-full rv-px-5 rv-py-2';
-        }
         default: {
             return 'rv-w-fit rv-px-10 rv-py-4';
         }
@@ -23,7 +20,7 @@ export const getSizeClasses = (size: SizeType): string => {
 export const getModeClasses = (variant: string): string => {
     switch (variant) {
         case 'primary' : {
-            return 'rv-text-tprimary rv-bg-primary hover:rv-text-tsecondary';
+            return 'rv-text-white rv-bg-primary hover:rv-text-white';
         }
         case 'secondary' : {
             return 'rv-px-10 rv-text-tsecondary rv-bg-secondary hover:rv-text-tprimary';
@@ -34,13 +31,16 @@ export const getModeClasses = (variant: string): string => {
         case 'danger': {
             return 'rv-px-10 rv-text-white rv-bg-danger hover:rv-bg-danger/70 rv-text-white';
         }
+        case 'disabled': {
+            return 'rv-px-10 rv-text-white [text-shadow:_0_1px_1px_rgb(0_0_0_/_0.7)] rv-bg-grey-500 rv-cursor-not-allowed';
+        }
         default: {
             return 'rv-text-tprimary rv-bg-primary hover:rv-bg-primary/70 ';
         }
     }
 };
 
-export const getHoverClass = (variant: string) => {
+export const getHoverClass = (variant: string): string => {
     switch (variant) {
         case 'primary' : {
             return 'rv-bg-green-500';
@@ -53,6 +53,9 @@ export const getHoverClass = (variant: string) => {
         }
         case 'danger': {
             return 'rv-bg-red-600';
+        }
+        case 'disabled': {
+            return 'rv-bg-grey-400';
         }
         default: {
             return 'rv-bg-green-500';

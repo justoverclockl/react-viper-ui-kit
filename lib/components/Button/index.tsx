@@ -28,7 +28,7 @@ const Button: FC<ButtonProps> = ({
     }, [variant, size, className]);
 
     const computedHoverClass = useMemo(() => {
-        const baseClass = 'rv-absolute rv-w-0 rv-h-0 rv-transition-all rv-duration-500 rv-ease-out rv-bg-green-500 rv-rounded-full group-hover:rv-w-56 group-hover:rv-h-56';
+        const baseClass = 'rv-absolute rv-w-0 rv-h-0 rv-transition-all rv-duration-500 rv-ease-out rv-rounded-full group-hover:rv-w-56 group-hover:rv-h-56';
         const hoverClass = getHoverClass(variant);
 
         return [baseClass, hoverClass].join(' ');
@@ -42,7 +42,7 @@ const Button: FC<ButtonProps> = ({
             {...props}
         >
             <span className={`${computedHoverClass}`}></span>
-            <span className='rv-absolute rv-inset-0 rv-w-full rv-h-full -rv-mt-1 rv-rounded-lg rv-opacity-30 rv-bg-gradient-to-b rv-from-transparent rv-via-transparent rv-to-gray-700'></span>
+            <span className='rv-absolute rv-inset-0 rv-w-full rv-h-full -rv-mt-1 rv-rounded-lg rv-opacity-30 rv-bg-gradient-to-b rv-from-black rv-via-black rv-to-gray-900'></span>
             {isLoading && (
                 <span className='rv-me-2 rv-relative rv-z-10'>
                     <LoadingIcon />
