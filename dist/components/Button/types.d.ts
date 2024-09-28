@@ -1,14 +1,12 @@
 import { AnchorHTMLAttributes } from 'react';
-
 export type SizeType = 'small' | 'medium' | 'large';
 export type VariantType = 'primary' | 'secondary' | 'outline' | 'danger' | 'disabled';
-
 export type ButtonProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
     /**
      *  Specify the button variant
      *  variant can be 'primary' | 'secondary' | 'outline' | 'disabled'
      */
-    variant: VariantType
+    variant: VariantType;
     /**
      *  Allowed sizes for the Button component
      *
@@ -16,15 +14,15 @@ export type ButtonProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
      * - medium
      * - large
      */
-    size?: SizeType
+    size?: SizeType;
     /**
      *  If true will render a loading spinner icon
      *
      */
-    isLoading?: boolean
+    isLoading?: boolean;
     /**
      *  If passed will add the href attribute to the button
      *
      */
-    href?: string
+    href?: string;
 };

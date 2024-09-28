@@ -1,0 +1,62 @@
+name: CI
+on:
+  push:
+    branches:
+      - develop
+  pull_request:
+    branches:
+      - develop
+jobs:
+  ci:
+    name: CI - Static analysis and Build
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node.Js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '>=20.12.0'
+      - name: Yarn Cache
+        id: yarn-cache-dir-path
+        run: echo "dir=$(yarn cache dir)" >> $GITHUB_OUTPUT
+      - uses: actions/cache@v4
+        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      - name: Make bash Scripts Executable
+        run: chmod +x ./.github/bin/*.sh
+
+      - name: Clear Yarn Cache
+        run: yarn cache clean
+
+      - name: Install
+        run: ./.github/bin/ci_install.sh
+
+      - name: Remove existing lib directory
+        if: github.event_name == 'push' && startsWith(github.ref, 'refs/heads/develop')
+        run: rm -rf dist
+
+      - name: Lint
+        run: ./.github/bin/ci_lint.sh || { echo "Lint failed"; exit 1; }
+
+      - name: Build
+        if: github.event_name == 'push' && startsWith(github.ref, 'refs/heads/develop')
+        run: ./.github/bin/ci_build.sh || { echo "Build failed"; exit 1; }
+
+      - name: Check if lib directory has changes
+        run: git status dist
+
+      - name: Commit and push build
+        if: github.event_name == 'push' && startsWith(github.ref, 'refs/heads/develop')
+        run: |
+          git config --global user.name 'ViperUI-[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add -f dist
+          git commit -m 'Build Viper UI lib'
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

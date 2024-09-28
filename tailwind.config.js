@@ -1,18 +1,24 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [
-    "./lib/**/*.{js,ts,jsx,tsx}",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
-  prefix: "rv-",
-  theme: {
-    extend: {
-      colors: {
-        primary: "#b353f5",
-        secondary: "#312839",
-        primarytext: "#ae9cda"
-      }
+    content: [
+        './lib/**/*.{js,ts,jsx,tsx}',
+        './src/**/*.{js,ts,jsx,tsx}',
+    ],
+    prefix: 'rv-',
+    theme: {
+        extend: {
+            colors: {
+                primary: '#94e179',
+                secondary: '#1aa73f',
+                light: '#58ae6f',
+                outline: 'transparent',
+                danger: '#c30e5d',
+                tprimary: '#13792e',
+                tsecondary: '#dff1e3',
+                tlight: '#35a431',
+            },
+        },
     },
-  },
-  plugins: [],
-}
+    plugins: [
+    ],
+};

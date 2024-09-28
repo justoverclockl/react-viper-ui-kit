@@ -2,59 +2,56 @@ import {
     FC,
     useMemo,
 } from 'react';
-import {
-    ButtonProps,
-    SizeType,
-} from './types.ts';
+import { ButtonProps } from './types.ts';
 import { BASE_BUTTON_CLASSES } from './constants.ts';
-
-const getSizeClasses = (size: SizeType): string => {
-    switch (size) {
-        case 'small': {
-            return 'rv-w-fit rv-px-5 rv-py-2';
-        }
-        case 'medium': {
-            return 'rv-w-fit rv-px-6 rv-py-3';
-        }
-        case 'large': {
-            return 'rv-w-fit rv-px-10 rv-py-4';
-        }
-        case 'full': {
-            return 'rv-w-full rv-px-10 rv-py-4';
-        }
-        default: {
-            return 'rv-w-full rv-px-5 rv-py-2';
-        }
-    }
-};
-
-const getModeClasses = (isPrimary: boolean): string =>
-    isPrimary
-        ? 'rv-text-white rv-bg-primary hover:rv-bg-primary/70'
-        : 'rv-text-white rv-bg-secondary hover:rv-bg-secondary/70';
+import {
+    getHoverClass,
+    getModeClasses,
+    getSizeClasses,
+} from './utils/classUtilities.ts';
+import LoadingIcon from './icons/LoadingIcon.tsx';
 
 const Button: FC<ButtonProps> = ({
-    primary = false,
+    variant = 'primary',
     size = 'large',
+    isLoading = false,
+    href = null,
     children,
     className,
     ...props
 }) => {
     const computedClassName = useMemo(() => {
-        const modeClass = getModeClasses(primary);
+        const modeClass = getModeClasses(variant);
         const sizeClass = getSizeClasses(size);
 
         return [modeClass, sizeClass, className].join(' ');
-    }, [primary, size, className]);
+    }, [variant, size, className]);
+
+    const computedHoverClass = useMemo(() => {
+        const baseClass = 'rv-absolute rv-w-0 rv-h-0 rv-transition-all rv-duration-500 rv-ease-out rv-rounded-full group-hover:rv-w-56 group-hover:rv-h-56';
+        const hoverClass = getHoverClass(variant);
+
+        return [baseClass, hoverClass].join(' ');
+    }, [variant]);
 
     return (
-        <button
+        <a
+            role='button'
             className={`${BASE_BUTTON_CLASSES} ${computedClassName}`}
-            type='button'
+            {...(href && { href: href })}
             {...props}
         >
-            {children}
-        </button>
+            <span className={`${computedHoverClass}`}></span>
+            <span className='rv-absolute rv-inset-0 rv-w-full rv-h-full -rv-mt-1 rv-rounded-lg rv-opacity-30 rv-bg-gradient-to-b rv-from-black rv-via-black rv-to-gray-900'></span>
+            {isLoading && (
+                <span className='rv-me-2 rv-relative rv-z-10'>
+                    <LoadingIcon />
+                </span>
+            )}
+            <span className='rv-relative'>
+                {children}
+            </span>
+        </a>
     );
 };
 

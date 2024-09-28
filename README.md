@@ -12,7 +12,7 @@ of pre-made components for your react application and also a set of useful custo
 ## UiKit Live Preview
 **You can view React Viper Ui kit live on vercel. You can easily try our component directly**
 
-* [Try React Viper Ui Kit live](https://react-viper-ui.vercel.app/)
+* [Try React Viper Ui Kit live](https://react-viper-ui-kit.vercel.app/)
 
 ## Contributions
 **Please read the documentation for contributions**

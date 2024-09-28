@@ -22,7 +22,7 @@
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "project": true,
+    "project": "./tsconfig.eslint.json",
     "tsconfigRootDir": "."
   },
   "plugins": [
@@ -54,7 +54,7 @@
     "max-len": [
       2,
       {
-        "code": 200
+        "code": 280
       }
     ],
     "react/prop-types": "off",
