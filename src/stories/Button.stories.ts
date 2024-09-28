@@ -51,7 +51,7 @@ export const Danger: Story = {
 export const SecondaryLoading: Story = {
     args: {
         variant: 'secondary',
-        children: 'Small loading',
+        children: 'Secondary loading small',
         size: 'small',
         isLoading: true,
     },

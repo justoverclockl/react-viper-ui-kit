@@ -1,9 +1,9 @@
-import { ButtonHTMLAttributes } from 'react';
+import { AnchorHTMLAttributes } from 'react';
 
 export type SizeType = 'small' | 'medium' | 'large' | 'full';
 export type VariantType = 'primary' | 'secondary' | 'outline' | 'danger';
 
-export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
+export type ButtonProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
     /**
      *  Specify the button variant
      *  variant can be 'primary' | 'secondary' | 'outline'
@@ -23,4 +23,9 @@ export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
      *
      */
     isLoading?: boolean
+    /**
+     *  If passed will add the href attribute to the button
+     *
+     */
+    href?: string
 };
