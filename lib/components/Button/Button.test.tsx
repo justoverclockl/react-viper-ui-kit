@@ -7,7 +7,7 @@ describe('Test React Viper UI Button', () => {
     it('should render button with label', () => {
         const title = 'Default Button';
         const { getByRole } = render(
-            <Button>{title}</Button>,
+            <Button variant='primary'>{title}</Button>,
         );
 
         const buttonElement = getByRole('button');
@@ -15,19 +15,19 @@ describe('Test React Viper UI Button', () => {
         expect(buttonElement)
             .toHaveTextContent(title);
         expect(buttonElement)
-            .toHaveClass(`${BASE_BUTTON_CLASSES} rv-text-white rv-bg-secondary hover:rv-bg-secondary/70 rv-w-fit rv-px-10 rv-py-4`);
+            .toHaveClass(`${BASE_BUTTON_CLASSES} rv-text-tprimary rv-bg-primary hover:rv-text-tsecondary`);
     });
 
-    it('should render the button with primary styles', () => {
-        const title = 'Primary Button';
+    it('should render the button with secondary styles', () => {
+        const title = 'Secondary Button';
         const { getByRole } = render(
-            <Button primary>
+            <Button variant='secondary'>
                 {title}
             </Button>,
         );
         const buttonElement = getByRole('button');
 
         expect(buttonElement)
-            .toHaveClass('rv-text-white rv-bg-primary hover:rv-bg-primary/70');
+            .toHaveClass(`${BASE_BUTTON_CLASSES} rv-px-10 rv-text-tsecondary rv-bg-secondary hover:rv-text-tprimary`);
     });
 });
