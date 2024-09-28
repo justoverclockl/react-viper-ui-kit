@@ -37,8 +37,8 @@ const Button: FC<ButtonProps> = ({
     return (
         <a
             role='button'
-            {...(href && { href: href })}
             className={`${BASE_BUTTON_CLASSES} ${computedClassName}`}
+            {...(href && { href: href })}
             {...props}
         >
             <span className={`${computedHoverClass}`}></span>
