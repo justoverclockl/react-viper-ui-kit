@@ -1,13 +1,14 @@
 import { ButtonHTMLAttributes } from 'react';
 
 export type SizeType = 'small' | 'medium' | 'large' | 'full';
+export type VariantType = 'primary' | 'secondary' | 'outline' | 'danger';
 
 export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
     /**
-     *  Specify if button is of type primary
-     *  normally used for principal actions
+     *  Specify the button variant
+     *  variant can be 'primary' | 'secondary' | 'outline'
      */
-    primary?: boolean
+    variant: VariantType
     /**
      *  Allowed sizes for the Button component
      *
@@ -17,4 +18,9 @@ export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
      * - full
      */
     size?: SizeType
+    /**
+     *  If true will render a loading spinner icon
+     *
+     */
+    isLoading?: boolean
 };

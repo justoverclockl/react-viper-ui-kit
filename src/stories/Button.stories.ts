@@ -19,15 +19,40 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
     args: {
-        primary: true,
-        children: 'Button Primary',
+        variant: 'primary',
+        children: 'Primary',
     },
 };
 
 export const Secondary: Story = {
     args: {
-        primary: false,
-        children: 'Button Secondary',
+        variant: 'secondary',
+        children: 'Secondary',
         size: 'large',
+    },
+};
+
+export const Outline: Story = {
+    args: {
+        variant: 'outline',
+        children: 'Outlined',
+        size: 'large',
+    },
+};
+
+export const Danger: Story = {
+    args: {
+        variant: 'danger',
+        children: 'Danger',
+        size: 'medium',
+    },
+};
+
+export const SecondaryLoading: Story = {
+    args: {
+        variant: 'secondary',
+        children: 'Small loading',
+        size: 'small',
+        isLoading: true,
     },
 };

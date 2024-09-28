@@ -93,6 +93,7 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
+    "lucide-react": "^0.446.0",
     "postcss": "^8.4.47",
     "postcss-cli": "^11.0.0",
     "storybook": "^8.3.3",
