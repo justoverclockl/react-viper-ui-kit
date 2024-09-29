@@ -1,0 +1,25 @@
+# useWindowSize() Hook
+##
+
+The useWindowSize hook is a custom React hook that tracks the size of the browser window and updates the state whenever
+the window is resized. This hook is useful for creating responsive components that need to adjust based on the window's width and height.
+
+```javascript
+import { useWindowSize } from 'react-viper-ui';
+
+const MyComponent = () => {
+   const { width, height } = useWindowSize();
+
+    return (
+        <div>
+            <p>Window Width: {width}px</p>
+            <p>Window Height: {height}px</p>
+        </div>
+    );
+};
+
+export default MyComponent;
+
+```
+
+
