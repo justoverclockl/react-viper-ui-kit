@@ -33,4 +33,20 @@ describe('Test React Viper UseFetchHook', () => {
         expect(result.current.error)
             .toBe('');
     });
+
+    it('should handle correctly fetch error', async () => {
+        fetchMock.mockReject(new Error('Failed to fetch'));
+        const { result } = renderHook(() =>
+            useFetch<{ id: number, title: string }>({ url: 'https://jsonplaceholder.typicode.com/posts/1' }),
+        );
+
+        await waitFor(() => {
+            expect(result.current.isLoading)
+                .toBe(false);
+            expect(result.current.data)
+                .toBeUndefined();
+            expect(result.current.error)
+                .toBe('Failed to fetch');
+        });
+    });
 });
