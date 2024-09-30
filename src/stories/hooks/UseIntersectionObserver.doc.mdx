@@ -1,0 +1,48 @@
+# useIntersectionObserver() Hook
+##
+
+The useIntersectionObserver hook is a custom React hook that enables you to detect when an element enters or leaves
+the viewport. This is particularly useful for implementing lazy loading, animations, or triggering events when elements come into view.
+
+```javascript
+import { useIntersectionObserver } from 'react-viper-ui'
+
+const MyComponent = () => {
+   const elementRef = useRef(null);
+
+    const handleIntersect = () => {
+        console.log('Element is in view!');
+    };
+
+    useIntersectionObserver({
+        el: elementRef,
+        onIntersect: handleIntersect,
+        rootMargin: 0,  // Optional: Define the margin around the root
+        unobserveOnIntersect: true, // Optional: Stop observing after intersecting
+    });
+
+    return (
+        <div ref={elementRef} style={{ height: '200px', backgroundColor: 'lightblue' }}>
+            Observe me!
+        </div>
+    );
+};
+
+export default MyComponent;
+
+```
+# Props
+##
+
+- **`el`**: `RefObject<HTMLDivElement | null>` (Required)
+A ref object pointing to the element to observe. This is the target element you want to observe.
+
+- **`onIntersect`**: `() => void` (Required)
+A callback function that is triggered when the element intersects with the viewport.
+
+- **`unobserveOnIntersect`**: `boolean` (Required)
+If `true`, the observer will stop observing after the first intersection.
+
+- **`rootMargin`**: `number` (Required)
+Margin around the root. It can be a positive or negative number to expand or shrink the intersection area.
+

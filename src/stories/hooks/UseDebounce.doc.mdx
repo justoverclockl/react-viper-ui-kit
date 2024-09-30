@@ -1,0 +1,45 @@
+# `useDebounce` Hook
+
+The `useDebounce` hook delays updating a value until a specified period of time has passed since the last change. This is useful for scenarios where you want to limit the rate of updates, such as typing in a search input, to avoid triggering expensive operations like API calls too frequently.
+
+## Type Definitions
+
+```jsx
+import { useEffect, useState } from 'react';
+import { useDebounce } from 'react-viper-ui';
+
+const SearchInput = () => {
+    const [searchTerm, setSearchTerm] = useState('');
+
+    const onChangeInput = (e) => {
+        const { value } = e.target;
+        setSearchTerm(value)
+    }
+
+    // Debounce the searchTerm by 500 milliseconds
+    const debouncedSearchTerm = useDebounce({ value: searchTerm, delay: 500 });
+
+    // Trigger a side-effect only when the debounced value changes
+    useEffect(() => {
+
+        if (debouncedSearchTerm) {
+            console.log(`Search for: ${debouncedSearchTerm}`);
+            // Make API call or filter data based on `debouncedSearchTerm`
+        }
+
+    }, [debouncedSearchTerm]);
+
+    return (
+        <div>
+            <input
+                type="text"
+                value={searchTerm}
+                onChange={onChangeInput}
+                placeholder="Search..."
+            />
+        </div>
+    );
+};
+
+export default SearchInput;
+```
