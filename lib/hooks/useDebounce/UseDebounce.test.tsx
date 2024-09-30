@@ -31,16 +31,13 @@ describe('Test React Viper useDebounce hook', () => {
 
         rerender({ value: 'updated', delay: 500 });
 
-        // Before timeout, the value should not have updated
         expect(result.current)
             .toBe('initial');
 
-        // Fast-forward time by 500ms
         act(() => {
             jest.advanceTimersByTime(500);
         });
 
-        // value should have updated
         expect(result.current)
             .toBe('updated');
     });
