@@ -8,8 +8,24 @@ body {
     background-color: #111;
 }
 
-#app {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 20px 0;
+@layer components {
+    .rv-card-padding {
+        padding: 0.8em 1.8em 1em;
+    }
+
+    .rv-card-radius {
+        border-radius: 0 40px 0 0;
+    }
+
+    .rv-card-description-padding {
+        padding: 0 2em 2em;
+    }
+
+    .rv-card-container-radius {
+        border-radius: calc(40 * 1px);
+    }
+
+    .rv-card-custom-translate {
+        transform: translateY(calc(100% - 133px));
+    }
 }

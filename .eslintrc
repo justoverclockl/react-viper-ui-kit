@@ -54,7 +54,7 @@
     "max-len": [
       2,
       {
-        "code": 280
+        "code": 400
       }
     ],
     "react/prop-types": "off",
