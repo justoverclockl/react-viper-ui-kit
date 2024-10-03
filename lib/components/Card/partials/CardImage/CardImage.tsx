@@ -1,10 +1,7 @@
 import { FC } from 'react';
 import { CardImageProps } from './types.tsx';
 import { cn } from '../../../../utils/cn.ts';
-import {
-    BadgeCheck,
-    CircleCheckBig,
-} from 'lucide-react';
+import { BadgeCheck } from 'lucide-react';
 
 const CardImage: FC<CardImageProps> = ({
     img,
@@ -14,21 +11,19 @@ const CardImage: FC<CardImageProps> = ({
     toggleSelected,
     ...props
 }) => {
-    const cardImg = img
-        ? img
-        : 'https://placehold.jp/35/ededed/bdbdbd/600x400.jpg?text=No%20image%20detected!';
-
     return (
         <>
             <img
                 role='img'
                 className={cn('rv-h-64 rv-w-full rv-object-cover rv-object-bottom rv-rounded-lg rv-shadow-lg rv-relative', className)}
-                src={cardImg}
+                src={img}
                 alt={alt}
                 {...props}
             />
             <div
                 onClick={toggleSelected}
+                role='switch'
+                aria-selected={isSelected}
                 className={cn(
                     'rv-absolute rv-left-2 rv-top-1 rv-z-10 rv-w-[30px] rv-h-[30px] rv-cursor-pointer',
                     isSelected

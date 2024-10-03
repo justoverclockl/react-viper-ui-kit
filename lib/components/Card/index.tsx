@@ -15,7 +15,7 @@ const Card: FC<CardProps> = ({
     isFeatured = false,
     isSelected = false,
     title,
-    img,
+    img = 'https://placehold.jp/35/ededed/bdbdbd/600x400.jpg?text=No%20image%20detected!',
     description,
     tagLabel,
     tagDescription,

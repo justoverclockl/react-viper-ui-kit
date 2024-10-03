@@ -30,7 +30,7 @@ export interface CardProps {
      * The image URL for the card's main display picture.
      * This field is required.
      */
-    img: string
+    img?: string
 
     /**
      * Title text displayed on the card.
