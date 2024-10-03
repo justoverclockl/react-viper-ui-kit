@@ -1,7 +1,10 @@
 import { FC } from 'react';
 import { CardImageProps } from './types.tsx';
 import { cn } from '../../../../utils/cn.ts';
-import { BadgeCheck } from 'lucide-react';
+import {
+    BadgeCheck,
+    CircleCheckBig,
+} from 'lucide-react';
 
 const CardImage: FC<CardImageProps> = ({
     img,
@@ -27,13 +30,14 @@ const CardImage: FC<CardImageProps> = ({
             <div
                 onClick={toggleSelected}
                 className={cn(
-                    'rv-absolute rv-left-2 rv-top-1 rv-z-10 rv-w-[60px] rv-h-[60px] rv-cursor-pointer',
+                    'rv-absolute rv-left-2 rv-top-1 rv-z-10 rv-w-[30px] rv-h-[30px] rv-cursor-pointer',
                     isSelected
                         ? 'rv-text-white rv-opacity-100'
                         : 'rv-opacity-35',
                 )}
             >
                 <BadgeCheck
+                    stroke='#fff'
                     fill={isSelected
                         ? '#1aa73f'
                         : '#333333'}
