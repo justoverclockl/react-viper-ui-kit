@@ -50,4 +50,10 @@ export interface CardProps {
      *
      */
     onCardSelect?: () => void
+    /**
+     * Callback function that triggers when the card is clicked.
+     * Can be used to handle custom behavior when the user clicks the card.
+     *
+     */
+    onCardClick?: () => void
 }

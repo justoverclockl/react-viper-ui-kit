@@ -20,6 +20,7 @@ const Card: FC<CardProps> = ({
     tagLabel,
     tagDescription,
     onCardSelect,
+    onCardClick,
 }) => {
     const [selectedState, setSelectedState] = useState(isSelected);
 
@@ -32,6 +33,7 @@ const Card: FC<CardProps> = ({
 
     return (
         <div
+            onClick={onCardClick}
             data-card-selected={selectedState}
             className='rv-max-w-[400px] rv-w-full rv-relative rv-overflow-hidden rv-rounded hover:rv-transform hover:rv-scale-95 rv-transition-transform rv-duration-300 rv-ease-in-out'
         >
