@@ -16,6 +16,7 @@ export default {
                 tprimary: '#13792e',
                 tsecondary: '#dff1e3',
                 tlight: '#35a431',
+                cardBorder: '#e5e5e5',
             },
         },
     },
