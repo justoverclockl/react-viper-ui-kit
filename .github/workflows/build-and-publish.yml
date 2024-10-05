@@ -53,7 +53,7 @@
 #        env:
 #          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 #        run: |
-#          git config --global user.name 'github-actions'
+#          git config --global user.name 'react-viper-ui-bot'
 #          git config --global user.email 'github-actions@github.com'
 #          git stash
 #          echo "Publishing version $NEW_VERSION"
