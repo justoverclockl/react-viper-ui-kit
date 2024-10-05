@@ -23,7 +23,8 @@ export const SwitchDefault: Story = {
         onChange: action('switch-toggled'),
         disabled: false,
         label: 'Switch Label',
-        /* @ts-expect-error */
+        /* @ts-expect-error: The action function expects a specific type that is currently not aligning with the provided argument type.
+        This is a temporary workaround until we can align the types correctly. */
         checked: action('switch-toggled')(true),
     },
 };
