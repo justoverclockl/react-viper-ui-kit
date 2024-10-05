@@ -23,7 +23,7 @@ export const SwitchDefault: Story = {
         onChange: action('switch-toggled'),
         disabled: false,
         label: 'Switch Label',
-        /* @ts-ignore */
+        /* @ts-expect-error */
         checked: action('switch-toggled')(true),
     },
 };
