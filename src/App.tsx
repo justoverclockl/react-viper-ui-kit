@@ -5,7 +5,7 @@ const App = () => {
     return (
         <div id='app'>
             <Switch
-                label='test'
+                label='Enable profile options'
             />
         </div>
     );
