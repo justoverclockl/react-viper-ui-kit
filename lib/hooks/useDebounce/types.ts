@@ -2,6 +2,9 @@
  * Parameters for the `useDebounce` hook.
  *
  * @template T - The type of the value that needs to be debounced.
+ * @see https://developer.mozilla.org/en-US/docs/Web/API/setTimeout
+ *
+ * @example const debouncedSearchTerm = useDebounce({ value: searchTerm, delay: 500 });
  */
 export type UseDebounceParams<T> = {
     /**

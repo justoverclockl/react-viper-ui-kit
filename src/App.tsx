@@ -1,12 +1,10 @@
 import './index.css';
-import Switch from '../lib/components/Switch';
+import Skeleton from '../lib/components/Skeleton';
 
 const App = () => {
     return (
         <div id='app'>
-            <Switch
-                label='Enable profile options'
-            />
+            <Skeleton />
         </div>
     );
 };
