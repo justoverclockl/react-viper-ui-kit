@@ -7,7 +7,8 @@ import {
     UseFetchReturnType,
 } from './types.ts';
 
-const useFetch = <T>({ url, config }: UseFetchParams): UseFetchReturnType<T> => {
+/* eslint-disable */
+const index = <T>({ url, config }: UseFetchParams): UseFetchReturnType<T> => {
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [error, setError] = useState<string>('');
     const [data, setData] = useState<T | undefined>(undefined);
@@ -45,4 +46,4 @@ const useFetch = <T>({ url, config }: UseFetchParams): UseFetchReturnType<T> => 
     return { isLoading, error, data };
 };
 
-export default useFetch;
+export default index;

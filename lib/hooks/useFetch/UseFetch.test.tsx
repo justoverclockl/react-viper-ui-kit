@@ -2,7 +2,7 @@ import {
     renderHook,
     waitFor,
 } from '@testing-library/react';
-import useFetch from './useFetch.ts';
+import index from './index.ts';
 import fetchMock from 'jest-fetch-mock';
 
 fetchMock.enableMocks();
@@ -14,7 +14,7 @@ beforeEach(() => {
 describe('Test React Viper UseFetchHook', () => {
     it('should fetch correctly the data', async () => {
         fetchMock.mockResponseOnce(JSON.stringify({ id: 1, title: 'Test Title', body: 'body' }));
-        const { result } = renderHook(() => useFetch({ url: 'https://jsonplaceholder.typicode.com/posts' }));
+        const { result } = renderHook(() => index({ url: 'https://jsonplaceholder.typicode.com/posts' }));
 
         expect(result.current.isLoading)
             .toBe(true);
@@ -37,7 +37,7 @@ describe('Test React Viper UseFetchHook', () => {
     it('should handle correctly fetch error', async () => {
         fetchMock.mockReject(new Error('Failed to fetch'));
         const { result } = renderHook(() =>
-            useFetch<{ id: number, title: string }>({ url: 'https://jsonplaceholder.typicode.com/posts/1' }),
+            index<{ id: number, title: string }>({ url: 'https://jsonplaceholder.typicode.com/posts/1' }),
         );
 
         await waitFor(() => {
