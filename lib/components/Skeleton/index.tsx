@@ -1,14 +1,14 @@
-import SkeletonAvatar from './partials/SkeletonAvatar';
-import SkeletonLine from './partials/SkeletonLine';
+import { FC } from 'react';
+import { SkeletonProps } from './types.ts';
 
-const Skeleton = () => {
+const Skeleton: FC<SkeletonProps> = ({ children }) => {
     return (
-        <div className='rv-flex rv-items-start rv-gap-3 rv-flex-col rv-w-full rv-p-2'>
-            <SkeletonAvatar />
-            <SkeletonLine size='full' />
-            <SkeletonLine size='full' />
-            <SkeletonLine size='medium' />
-            <SkeletonLine size='small' />
+        <div
+            aria-busy='true'
+            aria-live='polite'
+            className='rv-flex rv-items-start rv-gap-4 rv-flex-col rv-w-full'
+        >
+            {children}
         </div>
     );
 };
