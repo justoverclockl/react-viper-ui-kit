@@ -1,11 +1,15 @@
 export type UseFetchParams = {
     /**
      * The URL to make the HTTP request to.
+     *
+     * @example const response = await fetch('https://example.com/');
      */
     url: string;
     /**
      * Optional configuration for the fetch request, such as headers, method, body, etc.
      * Uses the `RequestInit` type provided by the Fetch API.
+     *
+     * @see https://developer.mozilla.org/en-US/docs/Web/API/RequestInit
      */
     config?: RequestInit;
 };
