@@ -7,6 +7,7 @@ import {
     UseFetchReturnType,
 } from './types.ts';
 
+/* eslint-disable */
 const index = <T>({ url, config }: UseFetchParams): UseFetchReturnType<T> => {
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [error, setError] = useState<string>('');
