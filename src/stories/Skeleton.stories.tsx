@@ -9,7 +9,7 @@ const meta = {
     component: Skeleton,
     parameters: { layout: 'centered' },
     tags: ['autodocs'],
-    // @ts-expect-error
+    // @ts-expect-error for subcomponents
     subcomponents: { SkeletonImage, SkeletonAvatar, SkeletonLine },
 } satisfies Meta<typeof Skeleton>;
 
