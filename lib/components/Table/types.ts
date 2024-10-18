@@ -1,5 +1,3 @@
-import { PaginationLocale } from '@components/Pagination/types.ts';
-
 export interface TableProps {
     /**
      * The data to be displayed in the table.
@@ -32,13 +30,6 @@ export interface TableProps {
      * If `true`, the table will support paginated views.
      */
     paginated?: boolean
-
-    /**
-     * Optional locale setting for pagination.
-     * This will determine the language or localization of the pagination controls.
-     */
-    paginationLocale?: PaginationLocale
-
     /**
      * The current page number being displayed in the paginated table.
      * This value is used for pagination control.
