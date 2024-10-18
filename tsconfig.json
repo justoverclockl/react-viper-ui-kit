@@ -1,5 +1,12 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "@components/*": ["lib/components/*"],
+      "@utils/*": ["lib/utils/*"],
+      "@hooks/*": ["lib/hooks/*"]
+    },
     "esModuleInterop": true,
     "target": "ES2020",
     "useDefineForClassFields": true,
@@ -19,7 +26,7 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
   },
   "include": ["src", "lib"],
   "references": [{ "path": "./tsconfig.node.json" }]

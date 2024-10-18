@@ -1,0 +1,47 @@
+# `index()` Hook
+
+A custom React hook for making HTTP requests using the Fetch API. This hook handles loading states, error management,
+and type safety for the returned data.
+
+## Usage
+
+```jsx
+import { index } from 'react-viper-ui';
+
+const MyComponent = () => {
+    // example with GET request
+    const { isLoading, error, data } = index({
+        url: 'https://dummyjson.com/products',
+    });
+
+    // example with POST request
+    const { isLoading, error, data } = index({
+        url: 'https://jsonplaceholder.typicode.com/posts',
+        config: {
+            // headers are optional
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'bearer token',
+            },
+            // allowed methods: 'POST' | 'PUT' | 'GET' | 'PATCH' | 'DELETE'
+            method: 'POST',
+            body: JSON.stringify({
+                title: 'ciccio',
+                userId: 55,
+            }),
+        },
+    });
+
+    return (
+       <div>
+           {isLoading && <p>Loading text...</p>}
+           {error && <p>Error: {error}</p>}
+           {data && data.map(item => (
+               <p key='unique-key'>{item.title}</p>
+           ))}
+       </div>
+    );
+};
+
+export default MyComponent;
+```

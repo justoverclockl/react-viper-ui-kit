@@ -40,6 +40,15 @@
       "version": "detect"
     },
     "import/resolver": {
+      "alias": {
+        "map": [
+          ["@", "./src"],
+          ["@utils", "./lib/utils"],
+          ["@components", "./lib/components"],
+          ["@hooks", "./lib/hooks"]
+        ],
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      },
       "typescript": {
         "alwaysTryTypes": true,
         "project": "./tsconfig.json"
@@ -54,7 +63,7 @@
     "max-len": [
       2,
       {
-        "code": 280
+        "code": 500
       }
     ],
     "react/prop-types": "off",
@@ -92,7 +101,7 @@
     ],
     "react/jsx-indent-props": ["error", 4],
     "react/jsx-first-prop-new-line": ["error", "multiline"],
-    "react/no-array-index-key": "error",
+    "react/no-array-index-key": 0,
     "react/forbid-foreign-prop-types": 0,
     "import/no-extraneous-dependencies": [0],
     "import/extensions": ["off", "never"],
@@ -167,7 +176,7 @@
       "unix"
     ],
     "max-depth": ["error", 2],
-    "max-params": ["error", 2],
+    "max-params": ["error", 3],
     "complexity": ["error", 8],
     "max-lines": ["error", {"max": 400, "skipBlankLines": true, "skipComments": true}],
     "max-lines-per-function": [
