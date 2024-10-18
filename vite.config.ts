@@ -1,5 +1,7 @@
 import { defineConfig } from 'vite';
+// eslint-disable-next-line import/default
 import react from '@vitejs/plugin-react';
+// eslint-disable-next-line import/default
 import dts from 'vite-plugin-dts';
 import { libInjectCss } from 'vite-plugin-lib-inject-css';
 import { resolve } from 'path';
