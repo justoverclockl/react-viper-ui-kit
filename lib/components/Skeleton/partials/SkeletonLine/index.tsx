@@ -18,9 +18,9 @@ const SkeletonLine: FC<SkeletonLineProps> = ({ size = '100%', schema = [] }) => 
                 )
                 : (
                     <>
-                        {schema.map(sl => (
+                        {schema.map((sl, idx) => (
                             <div
-                                key={`skeleton-line-${window.crypto.randomUUID()}`}
+                                key={`skeleton-line-${idx}`}
                                 role='status'
                                 aria-hidden='true'
                                 style={{ width: getSkeletonLineSize(sl) }}

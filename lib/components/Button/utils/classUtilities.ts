@@ -23,10 +23,10 @@ export const getModeClasses = (variant: string): string => {
             return 'rv-text-white rv-bg-primary hover:rv-text-white';
         }
         case 'secondary' : {
-            return 'rv-px-10 rv-text-tsecondary rv-bg-secondary hover:rv-text-tprimary';
+            return 'rv-px-10 rv-text-tsecondary rv-bg-secondary hover:rv-text-white';
         }
         case 'outline': {
-            return 'rv-px-10 rv-text-white rv-border rv-border-2 rv-bg-outline hover:rv-text-white';
+            return 'rv-px-10 rv-text-white [text-shadow:_0_1px_1px_rgb(0_0_0_/_0.7)] rv-border rv-border-2 rv-bg-outline hover:rv-text-white';
         }
         case 'danger': {
             return 'rv-px-10 rv-text-white rv-bg-danger hover:rv-bg-danger/70 rv-text-white';

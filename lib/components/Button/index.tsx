@@ -28,7 +28,7 @@ const Button: FC<ButtonProps> = ({
     }, [variant, size, className]);
 
     const computedHoverClass = useMemo(() => {
-        const baseClass = 'rv-absolute rv-w-0 rv-h-0 rv-transition-all rv-duration-500 rv-ease-out rv-rounded-full group-hover:rv-w-56 group-hover:rv-h-56';
+        const baseClass = 'rv-absolute rv-w-0 rv-h-0 rv-transition-all rv-duration-500 rv-ease-out rv-rounded-full group-hover:rv-w-full group-hover:rv-h-56';
         const hoverClass = getHoverClass(variant);
 
         return [baseClass, hoverClass].join(' ');

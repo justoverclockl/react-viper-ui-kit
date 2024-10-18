@@ -1,5 +1,8 @@
 import '@testing-library/jest-dom';
-import { render } from '@testing-library/react';
+import {
+    render,
+    act,
+} from '@testing-library/react';
 import Switch from './index.tsx';
 import {
     ChangeEvent,
@@ -33,7 +36,9 @@ describe('test React Viper Ui Switch', () => {
         expect(switchElement)
             .not.toBeChecked();
 
-        fireEvent.click(switchElement);
+        act(() => {
+            fireEvent.click(switchElement);
+        });
 
         expect(switchElement)
             .toBeChecked();
