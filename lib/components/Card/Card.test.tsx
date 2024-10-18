@@ -2,9 +2,9 @@ import '@testing-library/jest-dom';
 import {
     act,
     render,
+    fireEvent,
 } from '@testing-library/react';
 import Card from './index.tsx';
-import { fireEvent } from '@storybook/test';
 
 describe('Test React Viper UI Card', () => {
     it('should render card with default props', () => {
@@ -26,7 +26,10 @@ describe('Test React Viper UI Card', () => {
             .toBeInTheDocument();
 
         expect(cardImage)
-            .toHaveAttribute('src', 'https://placehold.jp/35/ededed/bdbdbd/600x400.jpg?text=No%20image%20detected!');
+            .toHaveAttribute(
+                'src',
+                'https://placehold.jp/35/ededed/bdbdbd/600x400.jpg?text=No%20image%20detected!',
+            );
     });
 
     it('should fire a function at selection/unselection once', () => {

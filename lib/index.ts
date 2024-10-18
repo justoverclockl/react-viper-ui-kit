@@ -1,12 +1,18 @@
 import './index.css';
 
+// Components
 export { default as Button } from './components/Button';
 export { default as Card } from './components/Card';
 export { default as Switch } from './components/Switch';
 export { default as Skeleton } from './components/Skeleton';
+
+// Skeleton
 export { default as SkeletonAvatar } from './components/Skeleton/partials/SkeletonAvatar';
 export { default as SkeletonLine } from './components/Skeleton/partials/SkeletonLine';
 export { default as SkeletonImage } from './components/Skeleton/partials/SkeletonImage';
+
+// table
+export { default as Table } from './components/Table';
 
 // hooks
 export { default as useIntersectionObserver } from './hooks/useIntersectionObserver';
