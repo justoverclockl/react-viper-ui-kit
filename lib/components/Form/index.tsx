@@ -55,9 +55,15 @@ const Form: FC<FormProps> = ({ schema, onSubmit }) => {
                     </div>
                 );
             })}
-            <Button variant='primary'>
-                invia
-            </Button>
+            <div className='rv-flex rv-justify-end rv-py-4'>
+                <Button
+                    className='rv-w-[150px]'
+                    variant='outline'
+                    size='small'
+                >
+                    Invia
+                </Button>
+            </div>
         </form>
     );
 };
