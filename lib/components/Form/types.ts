@@ -9,7 +9,7 @@ export type FieldType =
   | 'radio';
 
 export type SelectOption = {
-    value: string
+    value: string | number
     label: string
 };
 
@@ -18,6 +18,7 @@ export interface FieldConfigBase {
     name: string
     type: FieldType
     placeholder?: string
+    validation?: (value: unknown) => string | null | undefined
 }
 
 export interface SelectFieldConfig extends FieldConfigBase {
@@ -29,6 +30,9 @@ export type FieldConfig = FieldConfigBase | SelectFieldConfig;
 export type FormSchema = Array<FieldConfig>;
 export type FormValues = {
     [key: string]: unknown
+};
+export type FormErrorState = {
+    [key: string]: string | null
 };
 
 export interface FormProps {

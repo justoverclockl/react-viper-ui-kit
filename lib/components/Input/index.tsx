@@ -19,19 +19,15 @@ const FormInput: FC<FormInputProps> = ({
 
     return (
         <>
-            {type === 'text' && (
-                <>
-                    <input
-                        onChange={handleInputOnChange}
-                        className='rv-w-full rv-text-gray-700 rv-p-2 rv-border-2 rb-border-bg-secondary rv-outline-none focus:rv-bg-slate-100 rv-rounded'
-                        type={type}
-                        onBlur={onBlur}
-                        {...props}
-                    />
-                    {error && (
-                        <div className='rv-text-white'>{error}</div>
-                    )}
-                </>
+            <input
+                onChange={handleInputOnChange}
+                className='rv-w-full rv-text-gray-700 rv-p-2 rv-border-2 rb-border-bg-secondary rv-outline-none focus:rv-bg-slate-100 rv-rounded'
+                type={type}
+                onBlur={onBlur}
+                {...props}
+            />
+            {error && (
+                <div className='rv-text-white'>{error}</div>
             )}
         </>
     );
