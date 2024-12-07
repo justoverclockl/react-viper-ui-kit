@@ -1,61 +1,61 @@
-#name: Publish to npm
-#
-#on:
-#  push:
-#    branches:
-#      - main
-#  workflow_dispatch:
-#
-#jobs:
-#  build-and-publish:
-#    runs-on: ubuntu-latest
-#
-#    steps:
-#      - name: Checkout repository
-#        uses: actions/checkout@v4
-#
-#      - name: Set up Node.js
-#        uses: actions/setup-node@v4
-#        with:
-#          node-version: "20"
-#          registry-url: "https://registry.npmjs.org/"
-#
-#      - name: Install dependencies
-#        run: npm install
-#
-#      - name: Determine Version Bump
-#        id: version_bump
-#        run: |
-#          PR_TITLE=$(git log -1 --pretty=%B)
-#          echo "PR Title: $PR_TITLE"
-#          if [[ "$PR_TITLE" == *"[major]"* ]]; then
-#            echo "Version bump type: major"
-#            echo "bump=major" >> $GITHUB_ENV
-#          elif [[ "$PR_TITLE" == *"[minor]"* ]]; then
-#            echo "Version bump type: minor"
-#            echo "bump=minor" >> $GITHUB_ENV
-#          elif [[ "$PR_TITLE" == *"[patch]"* ]]; then
-#            echo "Version bump type: patch"
-#            echo "bump=patch" >> $GITHUB_ENV
-#          else
-#            echo "No version bump specified, defaulting to patch."
-#            echo "bump=patch" >> $GITHUB_ENV
-#          fi
-#
-#      - name: Bump Version
-#        run: |
-#          npm version $bump
-#          NEW_VERSION=$(node -p "require('./package.json').version")
-#          echo "New version: $NEW_VERSION"
-#          echo "NEW_VERSION=$NEW_VERSION" >> $GITHUB_ENV
-#
-#      - name: Publish to npm
-#        env:
-#          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-#        run: |
-#          git config --global user.name 'react-viper-ui-bot'
-#          git config --global user.email 'github-actions@github.com'
-#          git stash
-#          echo "Publishing version $NEW_VERSION"
-#          npm publish
-#          git reset --hard HEAD
+name: Publish to npm
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          registry-url: "https://registry.npmjs.org/"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Determine Version Bump
+        id: version_bump
+        run: |
+          PR_TITLE=$(git log -1 --pretty=%B)
+          echo "PR Title: $PR_TITLE"
+          if [[ "$PR_TITLE" == *"[major]"* ]]; then
+            echo "Version bump type: major"
+            echo "bump=major" >> $GITHUB_ENV
+          elif [[ "$PR_TITLE" == *"[minor]"* ]]; then
+            echo "Version bump type: minor"
+            echo "bump=minor" >> $GITHUB_ENV
+          elif [[ "$PR_TITLE" == *"[patch]"* ]]; then
+            echo "Version bump type: patch"
+            echo "bump=patch" >> $GITHUB_ENV
+          else
+            echo "No version bump specified, defaulting to patch."
+            echo "bump=patch" >> $GITHUB_ENV
+          fi
+
+      - name: Bump Version
+        run: |
+          npm version $bump
+          NEW_VERSION=$(node -p "require('./package.json').version")
+          echo "New version: $NEW_VERSION"
+          echo "NEW_VERSION=$NEW_VERSION" >> $GITHUB_ENV
+
+      - name: Publish to npm
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          git config --global user.name 'react-viper-ui-bot'
+          git config --global user.email 'github-actions@github.com'
+          git stash
+          echo "Publishing version $NEW_VERSION"
+          npm publish
+          git reset --hard HEAD
